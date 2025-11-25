@@ -22,3 +22,11 @@ def pregunta_08():
     39   39   E    5  1998-01-26    44
 
     """
+
+    import pandas as pd
+
+    df0 = pd.read_csv('files/input/tbl0.tsv', sep='\t')
+
+    df0['suma'] = df0['c0'] + df0['c2']
+
+    return df0

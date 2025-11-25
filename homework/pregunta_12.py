@@ -22,3 +22,15 @@ def pregunta_12():
     38   38                    eee:0,fff:9,iii:2
     39   39                    ggg:3,hhh:8,jjj:5
     """
+
+    import pandas as pd
+
+    df2 = pd.read_csv('files/input/tbl2.tsv', sep='\t')
+
+    result = df2.groupby('c0').apply(
+    lambda g: ",".join(
+         f"{a}:{b}" for a, b in sorted(zip(g['c5a'], g['c5b']))),
+    include_groups=False
+    ).reset_index(name='c5')
+
+    return result
